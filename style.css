@@ -1,0 +1,348 @@
+@font-face {
+    font-family: "gill";
+    src: url("/assets-20220625T135817Z-001/assets/font/Gill\ Sans\ Bold.otf") format("opentype"), url("/assets-20220625T135817Z-001/assets/font/Gill\ Sans\ Medium.otf") format("opentype");
+  }
+  .onoff {
+    background-color: #6C6B6B;
+    width: 20px;
+    height: 5px;
+    margin-left: 30px;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    position: relative;
+    transition: all 0.4s;
+    cursor: pointer;
+  }
+  .onoff.actif {
+    margin-left: 20px;
+  }
+  .onoff:after {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background-color: #6C6B6B;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .game_boy {
+    background-color: #FF0019;
+    height: 500px;
+    width: 320px;
+    border-radius: 5px;
+    border-bottom-right-radius: 50px;
+    box-sizing: border-box;
+    padding: 30px 20px;
+  }
+  .game_boy .ecran_contour {
+    box-sizing: border-box;
+    width: 100%;
+    height: 50%;
+    background-color: #3B3E3B;
+    border-radius: 5px;
+    border-bottom-right-radius: 40px;
+    padding: 30px;
+    position: relative;
+  }
+  .game_boy .ecran_contour .on {
+    position: absolute;
+    left: 0;
+    top: 65px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 4px;
+  }
+  .game_boy .ecran_contour .on .rond {
+    height: 5px;
+    margin-left: 0px;
+    position: relative;
+    width: 5px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  .game_boy .ecran_contour .on .rond:not(.pwr) {
+    width: 5px;
+  }
+  .game_boy .ecran_contour .on .rond:not(.pwr):after {
+    content: "";
+    position: absolute;
+    display: block;
+    transform: translateX(-2px);
+    width: 5px;
+    border-radius: 50%;
+    height: 5px;
+    background-color: #3B3E3B;
+  }
+  .game_boy .ecran_contour .on .rond:not(.pwr)::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #9D9D9F;
+  }
+  .game_boy .ecran_contour .on .rond.pwr {
+    background-color: #FF0019;
+    opacity: 0.7;
+    transition: all 0.4s;
+  }
+  .game_boy .ecran_contour .on .rond.pwr.actif {
+    background-color: #FCE9BE;
+  }
+  .game_boy .ecran_contour .on p {
+    width: 100%;
+    font-size: 6px;
+    font-family: "gill";
+    color: #9D9D9F;
+    text-transform: uppercase;
+  }
+  .game_boy .ecran_contour h2 {
+    font-family: "gill";
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #9D9D9F;
+    margin: 10px 0;
+    font-size: 16px;
+    display: flex;
+  }
+  .game_boy .ecran_contour h2 span {
+    color: #3B3E3B;
+    background-color: #9D9D9F;
+    font-size: 12px;
+    height: 14px;
+    display: inline-block;
+    margin-left: 10px;
+    text-transform: lowercase;
+    padding-top: 4px;
+    box-sizing: border-box;
+  }
+  .game_boy .ecran_contour .ecran {
+    width: 100%;
+    height: 100%;
+    border-radius: 3px;
+    background-color: #949B77;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-position: 620px 510px;
+    transition: all 1.2s linear;
+  }
+  .game_boy .ecran_contour .ecran.actif {
+    background-size: 700px;
+    background-position: 620px 510px;
+    background-image: url("/assets-20220625T135817Z-001/assets/ville.png");
+  }
+  .game_boy .ecran_contour .ecran.actif .bonhomme {
+    width: 30px;
+    height: 30px;
+    background-size: 120px;
+    background-image: url("/assets-20220625T135817Z-001/assets/sprite.png");
+  }
+  .game_boy .ecran_contour .ecran.actif .bonhomme.gobas {
+    -webkit-animation: bas 0.6s steps(4) infinite;
+            animation: bas 0.6s steps(4) infinite;
+  }
+  .game_boy .ecran_contour .ecran.actif .bonhomme.gogauche {
+    -webkit-animation: gauche 0.6s steps(4) infinite;
+            animation: gauche 0.6s steps(4) infinite;
+  }
+  .game_boy .ecran_contour .ecran.actif .bonhomme.gohaut {
+    -webkit-animation: haut 0.6s steps(4) infinite;
+            animation: haut 0.6s steps(4) infinite;
+  }
+  .game_boy .ecran_contour .ecran.actif .bonhomme.godroite {
+    -webkit-animation: droite 0.6s steps(4) infinite;
+            animation: droite 0.6s steps(4) infinite;
+  }
+  .game_boy .boutons {
+    position: relative;
+    height: 50%;
+  }
+  .game_boy .boutons .nintendo {
+    text-align: center;
+  }
+  .game_boy .boutons .nintendo h3 {
+    font-family: "gill";
+    color: white;
+    border: solid 1px white;
+    display: inline-block;
+    padding: 4px 10px 0px;
+    border-radius: 50px;
+    font-size: 14px;
+  }
+  .game_boy .boutons .btn_haut {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .game_boy .boutons .btn_haut .croix {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .game_boy .boutons .btn_haut .croix .haut, .game_boy .boutons .btn_haut .croix .gauche, .game_boy .boutons .btn_haut .croix .milieu, .game_boy .boutons .btn_haut .croix .droite, .game_boy .boutons .btn_haut .croix .bas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    background: #6C6B6B;
+    cursor: pointer;
+  }
+  .game_boy .boutons .btn_haut .croix .haut i, .game_boy .boutons .btn_haut .croix .gauche i, .game_boy .boutons .btn_haut .croix .milieu i, .game_boy .boutons .btn_haut .croix .droite i, .game_boy .boutons .btn_haut .croix .bas i {
+    color: #464C3A;
+  }
+  .game_boy .boutons .btn_haut .croix .haut {
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+  }
+  .game_boy .boutons .btn_haut .croix .gauche {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+  }
+  .game_boy .boutons .btn_haut .croix .droite {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+  }
+  .game_boy .boutons .btn_haut .croix .bas {
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+  }
+  .game_boy .boutons .btn_haut .croix .ligne {
+    display: flex;
+  }
+  .game_boy .boutons .btn_haut .ronds {
+    width: 80px;
+    display: flex;
+    transform: rotate(-45deg);
+    justify-content: space-between;
+  }
+  .game_boy .boutons .btn_haut .ronds div {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #6C6B6B;
+    transform: rotate(45deg);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    font-family: "gill";
+  }
+  .game_boy .boutons .btn_haut .ronds .btn_a:after {
+    content: "A";
+    color: #464C3A;
+    transform: translateY(25px);
+  }
+  .game_boy .boutons .btn_haut .ronds .btn_b:after {
+    content: "B";
+    color: #464C3A;
+    transform: translateY(25px);
+  }
+  .game_boy .boutons .btn_bas {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .game_boy .boutons .btn_bas div {
+    width: 40px;
+    height: 4px;
+    background: #6C6B6B;
+    border-radius: 50px;
+    font-family: "gill";
+    font-size: 10px;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+  }
+  .game_boy .boutons .btn_bas .start:after {
+    content: "START";
+    color: #464C3A;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 10px;
+  }
+  .game_boy .boutons .btn_bas .select:after {
+    content: "SELECT";
+    color: #464C3A;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 10px;
+  }
+  
+  @-webkit-keyframes bas {
+    to {
+      background-position: 120px 0px;
+    }
+  }
+  
+  @keyframes bas {
+    to {
+      background-position: 120px 0px;
+    }
+  }
+  @-webkit-keyframes gauche {
+    from {
+      background-position: 0px 90px;
+    }
+    to {
+      background-position: 120px 90px;
+    }
+  }
+  @keyframes gauche {
+    from {
+      background-position: 0px 90px;
+    }
+    to {
+      background-position: 120px 90px;
+    }
+  }
+  @keyframes bas {
+    to {
+      background-position: 120px 0px;
+    }
+  }
+  @-webkit-keyframes droite {
+    from {
+      background-position: 0px 60px;
+    }
+    to {
+      background-position: 120px 60px;
+    }
+  }
+  @keyframes droite {
+    from {
+      background-position: 0px 60px;
+    }
+    to {
+      background-position: 120px 60px;
+    }
+  }
+  @-webkit-keyframes haut {
+    from {
+      background-position: 0px 30px;
+    }
+    to {
+      background-position: 120px 30px;
+    }
+  }
+  @keyframes haut {
+    from {
+      background-position: 0px 30px;
+    }
+    to {
+      background-position: 120px 30px;
+    }
+  }/*# sourceMappingURL=style.css.map */
